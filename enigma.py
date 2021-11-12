@@ -1,6 +1,6 @@
 import pickle
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+alphabet = ' .abcdefghijklmnopqrstuvwxyz'
 
 f = open('./wheels', 'rb')
 rotor1, rotor2, rotor3 = pickle.load(f)
@@ -27,9 +27,9 @@ def enigma_one_char(char):
 def rotate_rotors():
 	global rotor1, rotor2, rotor3
 	rotor1 = rotor1[1:] + rotor1[0]
-	if state % 26:
+	if state % 28:
 		rotor2 = rotor2[1:] + rotor2[0]
-	if state % (26*26):
+	if state % (28*28):
 		rotor3 = rotor3 [1:] + rotor3[0] 
 
 

@@ -2,7 +2,7 @@ import random
 import pickle
 
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+alphabet = ' .abcdefghijklmnopqrstuvwxyz'
 
 rotor1 = list(alphabet)
 random.shuffle(rotor1)
