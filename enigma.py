@@ -1,6 +1,9 @@
 import pickle
 
 alphabet = ' .abcdefghijklmnopqrstuvwxyz'
+numbers = '1234567890'
+symbols = '~!@#$%^&*()_+-={}[]<>?/\\|,\'\":;'
+all_chars = alphabet + numbers + symbols
 
 f = open('./wheels', 'rb')
 rotor1, rotor2, rotor3 = pickle.load(f)
@@ -9,17 +12,17 @@ f.close()
 #print("Your settings:\n\trotor1: %s\n\trotor2: %s\n\trotor3: %s" % (rotor1, rotor2, rotor3))
 
 def reflector(char):
-	return alphabet[len(alphabet)-alphabet.find(char)-1]
+	return all_chars[len(all_chars)-all_chars.find(char)-1]
 
 
 def enigma_one_char(char):
-	char1 = rotor1[alphabet.find(char)]
-	char2 = rotor2[alphabet.find(char1)]
-	char3 = rotor3[alphabet.find(char2)]
+	char1 = rotor1[all_chars.find(char)]
+	char2 = rotor2[all_chars.find(char1)]
+	char3 = rotor3[all_chars.find(char2)]
 	reflected = reflector(char3)
-	char3 = alphabet[rotor3.find(reflected)]
-	char2 = alphabet[rotor2.find(char3)]
-	char1 = alphabet[rotor1.find(char2)]
+	char3 = all_chars[rotor3.find(reflected)]
+	char2 = all_chars[rotor2.find(char3)]
+	char1 = all_chars[rotor1.find(char2)]
 
 	return char1
 
